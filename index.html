@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arzoo — Data Analyst & Technology Consultant, Perth</title>
+<meta name="description" content="Arzoo, Perth-based data analyst and technology consultant. Power BI, SQL, Python and Generative AI.">
+<meta property="og:title" content="Arzoo — Data Analyst & Technology Consultant">
+<meta property="og:description" content="Power BI, SQL, Python and Generative AI. Based in Perth, WA.">
+<meta property="og:image" content="arzoo-headshot.jpg">
+<link rel="icon" href="arzoo-headshot.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F3F6F8;--white:#FFFFFF;--ink:#14233A;--slate:#5B6B7C;--ocean:#1F5F8B;--sky:#6FA8C7;--iron:#B5532A;--mist:#DCE5EC;--line:rgba(20,35,58,.12);
+  --f:"Schibsted Grotesk","Avenir Next","Segoe UI",system-ui,sans-serif}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);line-height:1.55;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--iron);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em}
+
+nav{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(243,246,248,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:66px}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.65rem}
+.logo img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;font-size:.95rem;align-items:center}
+nav ul a{text-decoration:none;color:var(--slate);font-weight:500}
+nav ul a:hover{color:var(--ink)}
+nav ul a.pill{color:var(--white);background:var(--ink);padding:.5rem 1.05rem;border-radius:999px;font-weight:600}
+nav ul a.pill:hover{background:var(--ocean);color:var(--white)}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:clamp(3rem,7vw,5rem)}
+.badge{display:inline-flex;align-items:center;gap:.55rem;font-size:.9rem;font-weight:500;color:var(--ocean);background:var(--white);border:1px solid var(--mist);border-radius:999px;padding:.4rem .95rem;margin-bottom:1.6rem}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#2E8B57}
+.hero h1{font-size:clamp(3.2rem,7.5vw,6rem);font-weight:800;letter-spacing:-.045em;line-height:.95}
+.hero .role{display:block;font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:500;letter-spacing:-.01em;color:var(--ocean);margin-top:.9rem}
+.hero .line{font-size:clamp(1.05rem,1.6vw,1.2rem);margin:1.4rem 0 2rem;max-width:38ch;color:var(--slate)}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;border:0;cursor:pointer;font-family:inherit}
+.btn svg{width:18px;height:18px}
+.btn.solid{background:var(--ink);color:var(--white)}
+.btn.solid:hover{background:var(--ocean)}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn.ghost:hover{background:var(--ink);color:var(--white)}
+.links{display:flex;gap:1.2rem;margin-top:1.6rem;font-size:.95rem;color:var(--slate)}
+.links a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font-weight:500}
+.links a:hover{color:var(--ocean)}
+.links svg{width:18px;height:18px}
+
+.figure{position:relative;padding-bottom:5rem}
+.photo{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--mist);max-width:460px;margin-left:auto}
+.photo img{width:100%;height:100%;object-fit:cover}
+.dash{position:absolute;left:0;bottom:0;width:min(310px,70%);background:var(--white);border:1px solid var(--mist);border-radius:20px;padding:.85rem;box-shadow:0 24px 50px rgba(20,35,58,.16)}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;font-size:.82rem;color:var(--slate);padding:0 .2rem .3rem}
+.chart-head b{color:var(--ink);font-weight:700;font-size:.95rem}
+#chart{width:100%;aspect-ratio:16/9;display:block}
+.modes{display:flex;gap:.25rem;flex-wrap:wrap;padding-top:.45rem}
+.modes button{font:600 .74rem var(--f);color:var(--slate);background:transparent;border:1px solid var(--mist);border-radius:999px;padding:.22rem .5rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* Strip */
+.strip{background:var(--ink);color:var(--white)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:1.5rem 1rem 1.5rem 0}
+.st + .st{padding-left:1.4rem;border-left:1px solid rgba(255,255,255,.14)}
+.st b{display:block;font-size:1.02rem}
+.st span{font-size:.86rem;color:#B9C6D3}
+
+section.block{padding:clamp(4rem,9vw,6.5rem) 0}
+section.tight{padding-top:0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:1.25rem;flex-wrap:wrap;margin-bottom:2.25rem}
+.head h2{font-size:clamp(2.1rem,4.6vw,3.2rem);font-weight:800}
+.head p{margin:0;color:var(--slate)}
+
+/* Pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}
+.step{padding:1.5rem 1.4rem 0 0;position:relative}
+.step + .step{padding-left:1.4rem;border-left:1px solid var(--line)}
+.step svg{width:40px;height:40px;margin-bottom:1rem}
+.step h3{font-size:1.2rem;font-weight:700;margin-bottom:.35rem}
+.step p{margin:0;color:var(--slate);font-size:.97rem}
+
+/* Filters + flip cards */
+.filters{display:flex;gap:.45rem;flex-wrap:wrap}
+.filters button{font:600 .9rem var(--f);color:var(--ink);background:var(--white);border:1px solid var(--mist);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.filters button em{font-style:normal;opacity:.6;margin-left:.3rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.flip{perspective:1300px;height:370px;border:0;padding:0;background:none;text-align:left;color:inherit;font:inherit;cursor:pointer;border-radius:22px}
+.flip[hidden]{display:none}
+.inner{position:relative;width:100%;height:100%;transition:transform .75s cubic-bezier(.2,.75,.2,1);transform-style:preserve-3d}
+.flip.open .inner{transform:rotateY(180deg)}
+@media (hover:hover){.flip:hover .inner{transform:rotateY(180deg)}}
+.face{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;display:flex;flex-direction:column}
+.front{background:var(--white);border:1px solid var(--mist)}
+.art{flex:1;display:grid;place-items:center;padding:1.2rem 1.2rem 0}
+.art svg{width:100%;height:100%;max-height:190px}
+.front .txt{padding:1rem 1.4rem 1.4rem;border-top:1px solid var(--mist)}
+.kind{display:inline-block;font-size:.78rem;font-weight:600;color:var(--white);background:var(--ocean);border-radius:999px;padding:.12rem .6rem}
+.kind.Engineering{background:var(--ink)}.kind.AI{background:var(--iron)}
+.front h3{font-size:1.25rem;font-weight:700;margin-top:.55rem}
+.hint{position:absolute;top:.9rem;right:.9rem;width:30px;height:30px;border-radius:50%;background:var(--paper);border:1px solid var(--mist);display:grid;place-items:center;color:var(--slate);font-size:.9rem}
+.back{transform:rotateY(180deg);background:var(--ink);color:var(--white);padding:1.6rem 1.5rem;justify-content:space-between}
+.back h3{font-size:1.2rem;font-weight:700}
+.back ul{margin:1.1rem 0 0;padding:0;list-style:none;display:grid;gap:.8rem}
+.back li{display:grid;grid-template-columns:1.7rem 1fr;gap:.6rem;font-size:.95rem;line-height:1.4;align-items:start;color:#DCE5EC}
+.back li i{width:1.7rem;height:1.7rem;border-radius:8px;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.8rem;color:var(--white);background:var(--ocean)}
+.back li:nth-child(3) i{background:var(--iron)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.chips span{font-size:.78rem;font-weight:600;padding:.25rem .65rem;border-radius:999px;background:rgba(255,255,255,.1)}
+@media (prefers-reduced-motion: reduce){.inner{transition:none}}
+
+/* Panels */
+.panel{background:var(--white);border:1px solid var(--mist);border-radius:22px;padding:clamp(1rem,3vw,1.75rem)}
+.scroll{overflow-x:auto}
+.heat{width:100%;min-width:560px;table-layout:fixed;border-collapse:separate;border-spacing:6px}
+.heat th{font-weight:600;color:var(--slate);font-size:.88rem;text-align:center;padding:.2rem}
+.heat thead td{width:32%}.heat th[scope=row]{text-align:left;color:var(--ink);font-weight:600;white-space:nowrap;padding-right:1rem}
+.heat td{height:36px;border-radius:8px;background:var(--paper);position:relative}
+.heat td.l1{background:rgba(111,168,199,.45)}
+.heat td.l2{background:var(--ocean)}
+.legend{display:flex;gap:1.2rem;align-items:center;justify-content:flex-end;font-size:.82rem;color:var(--slate);margin-top:.9rem;flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:.4rem}
+.legend i{width:16px;height:16px;border-radius:5px;display:inline-block}
+
+/* Gantt */
+.gantt{min-width:640px;position:relative;padding-top:2rem}
+.axis{position:absolute;top:0;left:30%;right:0;height:100%}
+.axis span{position:absolute;top:0;font-size:.8rem;color:var(--slate);transform:translateX(-50%)}
+.axis i{position:absolute;top:1.5rem;bottom:0;width:1px;background:var(--mist)}
+.now{position:absolute;top:1.5rem;bottom:0;width:2px;background:var(--iron)}
+.now em{position:absolute;top:-1.5rem;left:50%;transform:translateX(-50%);font-style:normal;font-size:.75rem;font-weight:600;color:var(--iron);white-space:nowrap}
+.row{display:grid;grid-template-columns:30% 70%;align-items:center;min-height:56px;padding:.4rem 0;position:relative}.row .lbl{padding-right:1rem}
+.row .lbl b{display:block;font-weight:600;font-size:1rem}
+.row .lbl span{font-size:.82rem;color:var(--slate)}
+.track{position:relative;height:100%;min-height:40px}
+.bar{position:absolute;top:50%;height:20px;transform:translateY(-50%) scaleX(0);transform-origin:left;border-radius:999px;transition:transform 1s cubic-bezier(.2,.75,.2,1)}
+.gantt.in .bar{transform:translateY(-50%) scaleX(1)}
+.bar.edu{background:var(--sky)}
+.bar.work{background:var(--ocean)}
+.bar.lead{background:var(--iron)}
+
+/* Education */
+.edu{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.edu li{background:var(--white);border:1px solid var(--mist);border-radius:20px;padding:1.5rem 1.6rem;display:grid;gap:.3rem;align-content:start}
+.edu strong{font-size:1.15rem;font-weight:700;line-height:1.25}
+.edu span{color:var(--slate);font-size:.95rem}
+.edu em{font-style:normal;margin-top:.6rem;display:inline-flex;align-self:start;justify-self:start;font-size:.85rem;font-weight:600;color:var(--iron);background:rgba(181,83,42,.08);border-radius:999px;padding:.25rem .75rem}
+.avatar{width:104px;height:104px;border-radius:50%;object-fit:cover;margin:0 auto 1.6rem;border:3px solid var(--sky)}
+
+/* Beyond work */
+.kgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.kx{padding:1.6rem 1.4rem 0 0}
+.kx + .kx{padding-left:1.4rem;border-left:1px solid var(--line)}
+.kx b{display:block;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:800;line-height:1;color:var(--ocean);letter-spacing:-.03em}
+.kx h3{font-size:1.1rem;font-weight:700;margin:.8rem 0 .2rem}
+.kx p{margin:0;color:var(--slate);font-size:.95rem}
+
+.contact{background:var(--ink);color:var(--white);text-align:center}
+.contact h2{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800;letter-spacing:-.035em}
+.contact p{color:#B9C6D3;margin:1rem auto 2rem;font-size:1.1rem;max-width:44ch}
+.contact .btns{justify-content:center}
+.contact .btn.solid{background:var(--white);color:var(--ink)}
+.contact .btn.solid:hover{background:var(--sky)}
+.contact .btn.ghost{border-color:rgba(255,255,255,.5);color:var(--white)}
+.contact .btn.ghost:hover{background:var(--white);color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--white);color:var(--ink);box-shadow:0 10px 30px rgba(20,35,58,.25);padding:.6rem 1.1rem;border-radius:999px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:30}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{background:var(--ink);padding:1.5rem 0 2rem;color:#8FA0B2;font-size:.85rem;text-align:center;border-top:1px solid rgba(255,255,255,.1)}
+
+@media (max-width:980px){
+  .edu{grid-template-columns:1fr}
+  .hero .wrap{grid-template-columns:1fr}
+  .photo{margin:0 auto 0 0}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pipe{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.5rem}
+  .step:nth-child(3){padding-left:0;border-left:0}
+  .kgrid{grid-template-columns:1fr}
+  .kx,.kx + .kx{padding:1.4rem 0;border-left:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:720px){
+  nav ul li:not(:last-child){display:none}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .st,.st + .st{padding:1rem 0;border-left:0}
+  .st:nth-child(even){padding-left:1rem;border-left:1px solid rgba(255,255,255,.14)}
+  .grid,.pipe{grid-template-columns:1fr}
+  .step,.step + .step{padding:1.2rem 0 0;border-left:0}
+  .flip{height:360px}
+  .figure{padding-bottom:0}
+  .dash{position:relative;width:100%;margin-top:-3rem;margin-left:auto;max-width:92%}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Main"><div class="wrap">
+  <a class="logo" href="#top"><img src="arzoo-headshot.jpg" alt="" width="34" height="34">Arzoo</a>
+  <ul><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#journey">Journey</a></li><li><a class="pill" href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="badge">Open to full-time roles in Perth · Full work rights</span>
+      <h1>Arzoo<span class="role">Data Analyst & Technology Consultant</span></h1>
+      <p class="line">I turn messy data into Power BI dashboards, Python models and AI tools that teams actually use. Currently consulting at Visagio.</p>
+      <div class="btns">
+        <a class="btn solid" href="#projects">See my work</a>
+        <a class="btn ghost" href="Arzoo_Resume.pdf" download="Arzoo-Resume.pdf">Download resume</a>
+      </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/arzoo-k-865669337"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+        <a href="https://github.com/ArzooKhokhar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="figure">
+      <div class="photo"><img src="arzoo-portrait.jpg" alt="Arzoo holding a laptop in an office" width="960" height="1200"></div>
+      <div class="dash" aria-label="Animated chart showing data moving through different chart types">
+        <div class="chart-head"><b id="vizlabel">Collect</b><span id="vizsub">raw data points</span></div>
+        <canvas id="chart"></canvas>
+        <div class="modes" id="modes"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip"><div class="wrap">
+  <div class="st"><b>Visagio</b><span>Technology Consultant</span></div>
+  <div class="st"><b>Dept of Justice WA</b><span>Data Analyst Intern</span></div>
+  <div class="st"><b>UWA</b><span>Master of Data Science</span></div>
+  <div class="st"><b>Ranked 1st in cohort</b><span>B.Tech, Computer Science</span></div>
+</div></div>
+
+<main>
+<section class="block">
+  <div class="wrap">
+    <div class="head"><h2>How I work with data</h2></div>
+    <div class="pipe">
+      <div class="step"><svg viewBox="0 0 42 42" fill="none" stroke-width="2.5" stroke-linecap="round"><ellipse cx="21" cy="10" rx="13" ry="5" stroke="#1F5F8B"/><path d="M8 10v22c0 3 6 5 13 5s13-2 13-5V10M8 21c0 3 6 5 13 5s13-2 13-5" stroke="#1F5F8B"/></svg><h3>Collect</h3><p>Pull and clean data from every system.</p></div>
+      <div class="step"><svg viewBox="0 0 42 42" fill="none" stroke-width="2.5" stroke-linecap="round"><circle cx="18" cy="18" r="11" stroke="#1F5F8B"/><path d="M26 26l10 10" stroke="#1F5F8B"/><path d="M12 21l4-5 3 3 4-6" stroke="#B5532A"/></svg><h3>Analyse</h3><p>SQL, Python and statistics to find the story.</p></div>
+      <div class="step"><svg viewBox="0 0 42 42" fill="none" stroke-width="2.5" stroke-linecap="round"><rect x="5" y="6" width="32" height="28" rx="5" stroke="#1F5F8B"/><path d="M12 27v-6M19 27v-11M26 27v-8" stroke="#1F5F8B"/><path d="M32 13v14" stroke="#B5532A"/></svg><h3>Visualise</h3><p>Power BI dashboards people actually use.</p></div>
+      <div class="step"><svg viewBox="0 0 42 42" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M7 21a14 14 0 0 1 24-10l4 4M35 21a14 14 0 0 1-24 10l-4-4" stroke="#1F5F8B"/><path d="M35 7v8h-8M7 35v-8h8" stroke="#B5532A"/></svg><h3>Automate</h3><p>Workflows that end manual reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight" id="projects">
+  <div class="wrap">
+    <div class="head"><h2>Projects</h2><div class="filters" id="filters" role="group" aria-label="Filter projects"></div></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="block tight" id="skills">
+  <div class="wrap">
+    <div class="head"><h2>Skills matrix</h2><p>Where I've used each tool.</p></div>
+    <div class="panel"><div class="scroll"><table class="heat" id="heat"></table></div>
+      <div class="legend"><span><i style="background:#1F5F8B"></i>Core</span><span><i style="background:rgba(111,168,199,.45)"></i>Used</span><span><i style="background:#F3F6F8;border:1px solid #DCE5EC"></i>Not in this role</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight" id="journey">
+  <div class="wrap">
+    <div class="head"><h2>Journey</h2><p>2020 to today.</p></div>
+    <div class="panel"><div class="scroll"><div class="gantt" id="gantt"></div></div></div>
+  </div>
+</section>
+
+<section class="block tight">
+  <div class="wrap">
+    <div class="head"><h2>Beyond work</h2></div>
+    <div class="kgrid">
+      <div class="kx"><b data-count="100" data-suffix="+">0</b><h3>UWA Data Science Club</h3><p>Students connected with industry</p></div>
+      <div class="kx"><b data-count="50" data-suffix="+">0</b><h3>Girls Programming Network</h3><p>Students taught to code</p></div>
+      <div class="kx"><b data-count="40" data-prefix="+" data-suffix="%">0</b><h3>Ignite Mentoring</h3><p>Increase in workshop participation</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight" id="education">
+  <div class="wrap">
+    <div class="head"><h2>Education</h2></div>
+    <ul class="edu">
+      <li><strong>Master of Data Science</strong><span>The University of Western Australia · 2024–2026</span><em>UWA Global Excellence Scholarship</em></li>
+      <li><strong>B.Tech, Computer Science & Engineering</strong><span>Maharishi Dayanand University, India · 2020–2024</span><em>Ranked 1st in cohort</em></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <img class="avatar" src="arzoo-headshot.jpg" alt="Arzoo" width="104" height="104">
+    <h2>Let's talk data.</h2>
+    <p>Open to full-time data analyst, BI, AI and technology consulting roles in Perth.</p>
+    <div class="btns">
+      <a class="btn solid" href="mailto:khokhararzoo11@gmail.com">Email me</a>
+      <button class="btn ghost" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="Arzoo_Resume.pdf" download="Arzoo-Resume.pdf">Resume</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/arzoo-k-865669337">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/ArzooKhokhar">GitHub</a>
+    </div>
+  </div>
+</section>
+<footer>Arzoo · Perth, Western Australia · © 2026</footer>
+<div class="toast" id="toast" role="status">Email copied</div>
+
+<script>
+
+/* ---------- Project cards with mini charts ---------- */
+const G='#1F5F8B',M='#6FA8C7',B='#B5532A',C='#5B6B7C',L='rgba(20,35,58,.12)';
+const grid4=`<g stroke="${L}">${[30,60,90,120].map(y=>`<path d="M20 ${y}H220"/>`).join('')}</g>`;
+const projects=[
+ {cat:"Analytics",title:"Executive dashboards for WA Government",
+  art:`<svg viewBox="0 0 240 150"><rect x="10" y="8" width="220" height="134" rx="12" fill="#F3F6F8" stroke="${L}"/><rect x="22" y="20" width="60" height="26" rx="6" fill="rgba(31,95,139,.12)"/><rect x="90" y="20" width="60" height="26" rx="6" fill="rgba(111,168,199,.18)"/><rect x="158" y="20" width="60" height="26" rx="6" fill="rgba(181,83,42,.12)"/><g fill="${G}"><rect x="26" y="96" width="12" height="34" rx="3"/><rect x="44" y="80" width="12" height="50" rx="3"/><rect x="62" y="88" width="12" height="42" rx="3"/><rect x="80" y="66" width="12" height="64" rx="3"/><rect x="98" y="74" width="12" height="56" rx="3"/></g><circle cx="175" cy="96" r="26" fill="none" stroke="${L}" stroke-width="12"/><circle cx="175" cy="96" r="26" fill="none" stroke="${M}" stroke-width="12" stroke-dasharray="110 200" transform="rotate(-90 175 96)"/><circle cx="175" cy="96" r="26" fill="none" stroke="${B}" stroke-width="12" stroke-dasharray="35 200" stroke-dashoffset="-110" transform="rotate(-90 175 96)"/></svg>`,
+  p:"Leaders needed reliable operational insight",b:"Interactive dashboards modelled in Power Query and DAX",o:"Clear reporting for executive decisions",stack:["Power BI","DAX","Power Query"]},
+ {cat:"Analytics",title:"Operational performance insights",
+  art:`<svg viewBox="0 0 240 150">${grid4}<path d="M20 120 L50 104 L80 110 L110 80 L140 88 L170 56 L200 62 L220 34 L220 130 L20 130Z" fill="url(#ga)"/><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${M}" stop-opacity=".35"/><stop offset="1" stop-color="${M}" stop-opacity="0"/></linearGradient></defs><path d="M20 120 L50 104 L80 110 L110 80 L140 88 L170 56 L200 62 L220 34" stroke="${M}" stroke-width="3" fill="none" stroke-linejoin="round"/><path d="M20 112 L220 60" stroke="${B}" stroke-width="2" stroke-dasharray="5 5"/><circle cx="220" cy="34" r="5" fill="${B}"/></svg>`,
+  p:"Trends were hidden in raw operational data",b:"Analysis in Excel and Power BI across key datasets",o:"Trends and performance gaps surfaced",stack:["Excel","Power BI","Statistics"]},
+ {cat:"Analytics",title:"Scenario simulation models",
+  art:`<svg viewBox="0 0 240 150">${grid4}<path d="M20 110 C70 100 90 60 130 58 S190 40 220 30 L220 70 C190 78 170 90 130 92 S70 118 20 122Z" fill="rgba(31,95,139,.14)"/><path d="M20 116 C70 108 90 76 130 75 S190 58 220 50" stroke="${G}" stroke-width="3" fill="none"/><path d="M20 118 C70 116 100 104 130 106 S190 96 220 92" stroke="${C}" stroke-width="2.5" fill="none" stroke-dasharray="6 6"/><path d="M20 112 C70 96 100 50 130 40 S190 24 220 16" stroke="${B}" stroke-width="2.5" fill="none" stroke-dasharray="2 6" stroke-linecap="round"/></svg>`,
+  p:"Decisions were made without testing scenarios",b:"Python models comparing operational scenarios",o:"Decisions backed by modelled evidence",stack:["Python","NumPy","Pandas"]},
+ {cat:"Engineering",title:"Multi-system data pipelines",
+  art:`<svg viewBox="0 0 240 150" fill="none" stroke-width="2.5"><g stroke="${G}"><rect x="16" y="22" width="56" height="26" rx="7"/><rect x="16" y="62" width="56" height="26" rx="7"/><rect x="16" y="102" width="56" height="26" rx="7"/></g><g stroke="${L}" stroke-width="2"><path d="M72 35 C100 35 100 75 128 75"/><path d="M72 75 H128"/><path d="M72 115 C100 115 100 75 128 75"/></g><circle r="4" fill="${M}"><animateMotion dur="2.2s" repeatCount="indefinite" path="M72 35 C100 35 100 75 128 75"/></circle><circle r="4" fill="${B}"><animateMotion dur="2.2s" begin=".7s" repeatCount="indefinite" path="M72 115 C100 115 100 75 128 75"/></circle><rect x="128" y="56" width="40" height="38" rx="10" stroke="${B}"/><path d="M140 75l6 6 10-12" stroke="${B}"/><path d="M168 75 H186" stroke="${L}"/><rect x="186" y="50" width="40" height="50" rx="10" fill="rgba(111,168,199,.2)" stroke="${M}"/><path d="M196 86v-8M206 86v-16M216 86v-11" stroke="${M}"/></svg>`,
+  p:"Data spread across systems that didn't agree",b:"ETL with SQL and Python, validated and reconciled",o:"One accurate source for reporting",stack:["SQL","Python","Snowflake"]},
+ {cat:"Engineering",title:"Automated reporting workflows",
+  art:`<svg viewBox="0 0 240 150" fill="none" stroke-width="2.5" stroke-linecap="round"><g stroke="${L}"><rect x="20" y="30" width="44" height="56" rx="6"/><path d="M30 46h24M30 56h24M30 66h16"/></g><path d="M74 58 H104" stroke="${G}" stroke-dasharray="4 5"/><circle cx="126" cy="58" r="22" stroke="${G}"/><path d="M126 44v14l9 6" stroke="${B}"/><path d="M148 58 H176" stroke="${G}" stroke-dasharray="4 5"/><rect x="176" y="30" width="44" height="56" rx="6" stroke="${M}" fill="rgba(111,168,199,.16)"/><path d="M188 66l7 7 14-16" stroke="${M}"/><g fill="${G}" opacity=".7"><rect x="20" y="108" width="40" height="10" rx="5"/></g><g fill="${M}"><rect x="66" y="108" width="154" height="10" rx="5" opacity=".25"/><rect x="66" y="108" width="120" height="10" rx="5"/></g></svg>`,
+  p:"Reports were rebuilt by hand every cycle",b:"Python scripts and Power Automate flows",o:"Less manual effort, reports on time",stack:["Python","Power Automate","SQL"]},
+ {cat:"AI",title:"AI web app for a mining company",
+  art:`<svg viewBox="0 0 240 150"><rect x="20" y="12" width="200" height="126" rx="12" fill="#F3F6F8" stroke="${L}"/><circle cx="36" cy="26" r="3" fill="${L}"/><circle cx="46" cy="26" r="3" fill="${L}"/><rect x="34" y="44" width="110" height="22" rx="11" fill="rgba(20,35,58,.08)"/><rect x="96" y="74" width="110" height="34" rx="11" fill="rgba(111,168,199,.25)"/><rect x="106" y="83" width="80" height="5" rx="2.5" fill="${M}"/><rect x="106" y="93" width="56" height="5" rx="2.5" fill="${M}" opacity=".6"/><rect x="34" y="116" width="172" height="14" rx="7" fill="none" stroke="${L}"/><path d="M200 34l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="${B}"/></svg>`,
+  p:"Teams needed fast answers without manual digging",b:"Python backend, Flutter frontend, AI services via REST APIs",o:"Working GenAI app the client can update themselves",stack:["Python","LLMs","Flutter","Strapi"]}
+];
+const grid=document.getElementById('grid'),filters=document.getElementById('filters');
+projects.forEach(pr=>{
+  const b=document.createElement('button');b.className='flip';b.type='button';b.dataset.cat=pr.cat;b.setAttribute('aria-pressed','false');
+  b.setAttribute('aria-label',`${pr.title}. Problem: ${pr.p}. Built: ${pr.b}. Result: ${pr.o}.`);
+  b.innerHTML=`<div class="inner" aria-hidden="true">
+   <div class="face front"><span class="hint">↻</span><div class="art">${pr.art}</div>
+     <div class="txt"><span class="kind ${pr.cat}">${pr.cat}</span><h3>${pr.title}</h3></div></div>
+   <div class="face back"><div><h3>${pr.title}</h3><ul>
+     <li><i>P</i><span>${pr.p}</span></li><li><i>B</i><span>${pr.b}</span></li><li><i>R</i><span>${pr.o}</span></li></ul></div>
+     <div class="chips">${pr.stack.map(s=>`<span>${s}</span>`).join('')}</div></div></div>`;
+  b.addEventListener('click',()=>{const o=b.classList.toggle('open');b.setAttribute('aria-pressed',o)});
+  grid.appendChild(b);
+});
+["All","Analytics","Engineering","AI"].forEach((c,i)=>{
+  const n=c==="All"?projects.length:projects.filter(p=>p.cat===c).length;
+  const f=document.createElement('button');f.type='button';f.innerHTML=`${c}<em>${n}</em>`;f.setAttribute('aria-pressed',i===0);
+  f.onclick=()=>{[...filters.children].forEach(x=>x.setAttribute('aria-pressed',x===f));
+    [...grid.children].forEach(card=>card.hidden=!(c==="All"||card.dataset.cat===c))};
+  filters.appendChild(f);
+});
+
+/* ---------- Skills heatmap (2 core, 1 used, 0 not yet) ---------- */
+const cols=["Visagio","Dept of Justice","UWA Master"];
+const skills=[["Power BI",[2,2,1]],["DAX & Power Query",[1,2,0]],["SQL",[2,0,2]],["Python",[2,0,2]],["Excel",[0,2,0]],["Statistics & modelling",[2,0,2]],["Data validation",[2,2,1]],["Power Automate",[2,0,0]],["Machine learning",[0,0,2]],["Generative AI & NLP",[2,0,1]],["Stakeholder requirements",[2,2,0]]];
+const lv=["Not in this role","Used","Core"];
+document.getElementById('heat').innerHTML=`<thead><tr><td style="background:none"></td>${cols.map(c=>`<th scope="col">${c}</th>`).join('')}</tr></thead><tbody>${
+  skills.map(([s,v])=>`<tr><th scope="row">${s}</th>${v.map((x,i)=>`<td class="l${x}" title="${s} at ${cols[i]}: ${lv[x]}"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${lv[x]}</span></td>`).join('')}</tr>`).join('')}</tbody>`;
+
+/* ---------- Gantt ---------- */
+const y0=2020,y1=2027,pct=d=>((d-y0)/(y1-y0))*100,ym=(y,m)=>y+(m-1)/12;
+const rows=[["Bachelor of Technology in Computer Science and Engineering","Maharishi Dayanand University",ym(2020,7),ym(2024,6),"edu"],["Master of Data Science","The University of Western Australia",ym(2024,7),ym(2026,7),"edu"],["Technology Consultant","Visagio Australia",ym(2025,6),ym(2026,10),"work"],["Data Analyst Intern","Department of Justice, WA",ym(2025,11),ym(2026,2),"work"],["Mentoring & leadership","UWA DSC, Ignite, GPN",ym(2025,2),ym(2026,2),"lead"]];
+const gantt=document.getElementById('gantt');
+let ax='<div class="axis">';for(let y=y0;y<y1;y++)ax+=`<span style="left:${pct(y)}%">${y}</span><i style="left:${pct(y)}%"></i>`;
+ax+=`<div class="now" style="left:${pct(ym(2026,10))}%"><em>Today</em></div></div>`;
+gantt.innerHTML=ax+rows.map(([t,s,a,b,c],i)=>`<div class="row"><div class="lbl"><b>${t}</b><span>${s}</span></div><div class="track"><div class="bar ${c}" style="left:${pct(a)}%;width:${pct(b)-pct(a)}%;transition-delay:${i*.12}s"></div></div></div>`).join('')+'<div style="height:1.6rem"></div>';
+
+/* ---------- Count-ups & reveal ---------- */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function count(el){const n=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';if(reduce){el.textContent=pre+n+suf;return}
+  const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);el.textContent=pre+Math.round(n*e)+suf;if(k<1)requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.dataset.count?count(e.target):e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));io.observe(gantt);
+
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText('khokhararzoo11@gmail.com')}catch(e){}
+  const t=document.getElementById('toast');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)};
+
+/* ---------- Hero chart: points morph between chart types ---------- */
+const cv=document.getElementById('chart'),cx=cv.getContext('2d'),lab=document.getElementById('vizlabel'),sub=document.getElementById('vizsub'),modesEl=document.getElementById('modes');
+const N=96,pal=['#1F5F8B','#6FA8C7','#B5532A','#14233A'];let W,H;
+function size(){const d=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+const rnd=(s=>()=>(s=(s*16807)%2147483647)/2147483647)(11);
+const raw=Array.from({length:N},()=>[.04+rnd()*.92,.06+rnd()*.88]);
+const scatter=Array.from({length:N},()=>{const x=.05+rnd()*.9;return [x,Math.min(.94,Math.max(.06,.12+.72*x+(rnd()-.5)*.26))]});
+const hs=[.35,.55,.42,.7,.62,.85,.78,.95];
+const bars=Array.from({length:N},(_,i)=>{const b=i%8,k=Math.floor(i/8);return [.07+b*.12+.02,.05+(k/11)*hs[b]*.88]});
+const line=Array.from({length:N},(_,i)=>{const x=i/(N-1);return [.04+x*.92,.18+.55*x+.1*Math.sin(x*9)]});
+const donut=Array.from({length:N},(_,i)=>{const a=i/N*Math.PI*2-Math.PI/2,r=.32+(i%3)*.04;return [.5+Math.cos(a)*r*(H&&W?H/W:.62),.5+Math.sin(a)*r]});
+const shapes=[{n:"Collect",s:"raw data points",p:raw},{n:"Explore",s:"finding correlation",p:scatter},{n:"Compare",s:"categories side by side",p:bars},{n:"Trend",s:"change over time",p:line},{n:"Share",s:"part of the whole",p:donut}];
+const P=raw.map(([x,y],i)=>({x,y,fx:x,fy:y,c:pal[i%4]}));let cur=0,tStart=0,auto=true;
+shapes.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.n;b.setAttribute('aria-pressed',i===0);b.onclick=()=>{auto=false;go(i)};modesEl.appendChild(b)});
+function go(i){cur=i;tStart=performance.now();P.forEach(p=>{p.fx=p.x;p.fy=p.y});lab.textContent=shapes[i].n;sub.textContent=shapes[i].s;
+  if(i===4){const k=H/W;donut.forEach((d,j)=>{const a=j/N*Math.PI*2-Math.PI/2,r=.34+(j%3)*.045;d[0]=.5+Math.cos(a)*r*k;d[1]=.5+Math.sin(a)*r})}
+  [...modesEl.children].forEach((b,k)=>b.setAttribute('aria-pressed',k===i));
+  P.forEach((p,k)=>{p.c=i===2?pal[(k%8)%4]:i===4?pal[Math.floor(k/N*4)]:pal[k%4]})}
+function draw(now){
+  const t=reduce?1:Math.min(1,(now-tStart)/1100),e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,pad=14,w=W-pad*2,h=H-pad*2;
+  cx.clearRect(0,0,W,H);cx.strokeStyle='rgba(20,35,58,.08)';cx.lineWidth=1;
+  for(let g=0;g<=4;g++){const y=pad+h*g/4;cx.beginPath();cx.moveTo(pad,y);cx.lineTo(W-pad,y);cx.stroke()}
+  const tgt=shapes[cur].p;P.forEach((p,k)=>{p.x=p.fx+(tgt[k][0]-p.fx)*e;p.y=p.fy+(tgt[k][1]-p.fy)*e});
+  if(cur===3&&t>.6){const a=(t-.6)*2.5;const gr=cx.createLinearGradient(0,pad,0,H-pad);gr.addColorStop(0,`rgba(31,95,139,${.22*a})`);gr.addColorStop(1,'rgba(31,95,139,0)');
+    cx.fillStyle=gr;cx.beginPath();P.forEach((p,k)=>{const X=pad+p.x*w,Y=pad+(1-p.y)*h;k?cx.lineTo(X,Y):cx.moveTo(X,Y)});cx.lineTo(pad+P[N-1].x*w,H-pad);cx.lineTo(pad+P[0].x*w,H-pad);cx.fill();
+    cx.strokeStyle=`rgba(31,95,139,${a})`;cx.lineWidth=2.5;cx.beginPath();P.forEach((p,k)=>{const X=pad+p.x*w,Y=pad+(1-p.y)*h;k?cx.lineTo(X,Y):cx.moveTo(X,Y)});cx.stroke()}
+  if(cur===1&&t>.6){cx.strokeStyle=`rgba(181,83,42,${(t-.6)*2})`;cx.lineWidth=2;cx.setLineDash([6,6]);cx.beginPath();cx.moveTo(pad,pad+(1-.12)*h);cx.lineTo(W-pad,pad+(1-.84)*h);cx.stroke();cx.setLineDash([])}
+  const r=Math.max(2.4,W/125);
+  P.forEach(p=>{const X=pad+p.x*w,Y=pad+(1-p.y)*h;cx.fillStyle=p.c;cx.shadowColor=p.c;cx.shadowBlur=0;cx.beginPath();
+    if(cur===2){cx.roundRect?cx.roundRect(X-r*1.7,Y-r*.9,r*3.4,r*1.7,2):cx.rect(X-r*1.7,Y-r*.9,r*3.4,r*1.7)}else cx.arc(X,Y,r,0,7);cx.fill()});
+  cx.shadowBlur=0;requestAnimationFrame(draw);
+}
+size();addEventListener('resize',size);go(0);requestAnimationFrame(draw);
+if(!reduce)setInterval(()=>{if(auto)go((cur+1)%shapes.length)},3200);
+</script>
+</body>
+</html>
